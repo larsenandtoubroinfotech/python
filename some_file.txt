@@ -1,0 +1,1 @@
+{"repositories":["angularjavaapp","init_image","jdk-7_apache-tomcat-7","jenkins","mysql_ubuntu","python_software","stephenreed/jenkins-java8-maven-git","tomcat_final_shefali","tomcat_final_shefali_ubuntu","tomcat_latest","tomcat_shefali","tomcat_ubuntu","tomcat_web_module","ubuntu_final_tomcat","ubuntu_tomcat"]}

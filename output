@@ -1,0 +1,31 @@
+Sending build context to Docker daemon 557.1 kBSending build context to Docker daemon 1.114 MBSending build context to Docker daemon 1.671 MBSending build context to Docker daemon 2.228 MBSending build context to Docker daemon 2.785 MBSending build context to Docker daemon 3.342 MBSending build context to Docker daemon 3.899 MBSending build context to Docker daemon 4.456 MBSending build context to Docker daemon 5.014 MBSending build context to Docker daemon 5.571 MBSending build context to Docker daemon 6.128 MBSending build context to Docker daemon 6.685 MBSending build context to Docker daemon 7.242 MBSending build context to Docker daemon 7.799 MBSending build context to Docker daemon 8.356 MBSending build context to Docker daemon 8.913 MBSending build context to Docker daemon  9.47 MBSending build context to Docker daemon 10.03 MBSending build context to Docker daemon 10.58 MBSending build context to Docker daemon 11.14 MBSending build context to Docker daemon  11.7 MBSending build context to Docker daemon 12.26 MBSending build context to Docker daemon 12.81 MBSending build context to Docker daemon 13.37 MBSending build context to Docker daemon 13.93 MBSending build context to Docker daemon 14.48 MBSending build context to Docker daemon 15.04 MBSending build context to Docker daemon  15.6 MBSending build context to Docker daemon 16.15 MBSending build context to Docker daemon 16.71 MBSending build context to Docker daemon 17.27 MBSending build context to Docker daemon 17.83 MBSending build context to Docker daemon 18.38 MBSending build context to Docker daemon 18.64 MB
+Step 1 : FROM ubuntu:latest
+ ---> 104bec311bcd
+Step 2 : MAINTAINER shefali
+ ---> Using cache
+ ---> d61da2130815
+Step 3 : LABEL Description "This image contains java and tomcat softwares" Version "1.0"
+ ---> Using cache
+ ---> b0f40d55a9c8
+Step 4 : RUN cd /home      && apt-get update && apt-get install wget -y     && wget http://10.101.3.141/package_repository/debian/jdk-7u80-linux-x64.tar.gz      && tar -xzvf jdk-7u80-linux-x64.tar.gz      && rm -rf jdk-7u80-linux-x64.tar.gz      && wget http://10.101.3.141/package_repository/debian/apache-tomcat-7.0.42.tar.gz      && tar -xzvf apache-tomcat-7.0.42.tar.gz      && rm -rf apache-tomcat-7.0.42.tar.gz      && tomcat_folder=`ls | grep tomcat` && echo $tomcat_folder     && mv $tomcat_folder tomcat && ls
+ ---> Using cache
+ ---> 4562b2182aa0
+Step 5 : RUN cd /home/tomcat/ && ls
+ ---> Using cache
+ ---> 76d1b687a109
+Step 6 : COPY entrypoint.sh /home/
+ ---> Using cache
+ ---> 439ccc77dcad
+Step 7 : COPY AngularJavaApp.war /home/tomcat/webapps/
+ ---> Using cache
+ ---> c8a659f0e907
+Step 8 : EXPOSE 8080
+ ---> Using cache
+ ---> d0df54f2fa12
+Step 9 : ENTRYPOINT /bin/bash /home/entrypoint.sh
+ ---> Using cache
+ ---> f1bcba24942f
+Step 10 : WORKDIR /home/tomcat/
+ ---> Using cache
+ ---> 3492427c69ec
+Successfully built 3492427c69ec
